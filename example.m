@@ -98,7 +98,7 @@ nexttile;
 hold on;
 plot(1e3*t0, s0);
 xlabel("Time (in ms)");
-ylabel("Energy");
+ylabel("Amplitude");
 title("Analytic chirp");
 
 nexttile;
@@ -107,7 +107,7 @@ plot(1e3*t1, abs(s1));
 plot(1e3*t1, real(s1));
 plot(1e3*t1, imag(s1));
 xlabel("Time (in ms)");
-ylabel("Energy");
+ylabel("Amplitude");
 legend(["Modulus" "Real part" "Imaginary part"]);
 title("Signal after one filter+downsampling step");
 
@@ -117,7 +117,7 @@ plot(1e3*t2, abs(s2));
 plot(1e3*t2, real(s2));
 plot(1e3*t2, imag(s2));
 xlabel("Time (in ms)");
-ylabel("Energy");
+ylabel("Amplitude");
 legend(["Modulus" "Real part" "Imaginary part"]);
 title("Output signal of the echosounder");
 saveas(gcf, 'FIG/theo_u.eps', 'epsc');
@@ -142,14 +142,14 @@ tiledlayout(2,1);
 nexttile;
 plot(time*1e3, 20*log10(abs(s)));
 xlabel("Time (in ms)");
-ylabel("Energy level");
+ylabel("Power level (in dB)");
 nexttile;
 hold on;
 xline(fmin/1e3,'--');
 xline(fmax/1e3, '--');
 plot(f/1e3, abs(S/Ndft));
 xlabel("Frequency (in kHz)");
-ylabel("Energy");
+ylabel("Power (arbitrary units)");
 saveas(gcf, 'FIG/rec_time_freq.eps', 'epsc');
 
 %% Frequency components
@@ -208,7 +208,7 @@ hold on;
 plot(time*1e3, 20*log10(abs(s)));
 plot(time*1e3, 20*log10(abs(corrected_s)));
 xlabel("Time (in ms)");
-ylabel("Energy (in dB)");
+ylabel("Power level (in dB)");
 legend(["Raw signal" "Corrected signal"]);
 saveas(gcf, 'FIG/ch3_4_comp_corr.eps', 'epsc');
 
